@@ -26,7 +26,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { PostsComponent } from './posts/posts.component';
 import { GithubFollowersComponent } from './github-followers/github-followers.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component'; 
@@ -59,7 +59,29 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      { 
+        path: '', 
+        component: HomeComponent 
+      },
+      {
+        path: 'followers/:id/:username',
+        component: GithubProfileComponent
+      },
+      { 
+        path: 'followers', 
+        component: GithubFollowersComponent 
+      },
+      {
+        path: 'posts',
+        component: PostsComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      }
+    ])
   ],
   providers: [
     PostService,

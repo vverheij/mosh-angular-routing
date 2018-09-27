@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-github-profile',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GithubProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log('GithubProfile OnInit');
+
+    let page = this.route.snapshot.queryParamMap.get('page');
+    let order = this.route.snapshot.queryParamMap.get('order');
+
+    let id = this.route.snapshot.paramMap.get('id');
+    console.log('userid: ' + id + ' / page: ' + page + ' / order: ' + order);
+  
+    // this.route.paramMap
+    //   .subscribe((params) => {
+    //     let id = +params.get('id');
+    //     console.log(id);
+    //   })
   }
 
 }
