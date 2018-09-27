@@ -13,11 +13,10 @@ export class GithubProfileComponent implements OnInit {
   ngOnInit() {
     console.log('GithubProfile OnInit');
 
-    let page = this.route.snapshot.queryParamMap.get('page');
-    let order = this.route.snapshot.queryParamMap.get('order');
+
 
     let id = this.route.snapshot.paramMap.get('id');
-    console.log('userid: ' + id + ' / page: ' + page + ' / order: ' + order);
+    console.log('userid: ' + id);
   
     // this.route.paramMap
     //   .subscribe((params) => {
